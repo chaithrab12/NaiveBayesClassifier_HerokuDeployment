@@ -50,22 +50,14 @@ def predict():
     price = request.form['price']
     priceTransform = priceVect.transform(np.array(price).reshape(1,-1).reshape(-1,1))
 
-    print(essayTransform.shape,priceTransform.shape,schoolStateTransform.shape,
-                             projectGradeCategoryTransform.shape,cleanCategoriesTransform.shape,cleanSubcategoriesTransform.shape, teacherPrefixTransform.shape,previouslyPostedProjectsCountTransform.shape)
-
     final_features = hstack((essayTransform,priceTransform,schoolStateTransform,
                              projectGradeCategoryTransform,cleanCategoriesTransform,cleanSubcategoriesTransform, teacherPrefixTransform,previouslyPostedProjectsCountTransform)).tocsr()
-    print(final_features.shape)
-
-    # final_features = [np.array(int_features)]
 
     prediction = model.predict(final_features)
     print(prediction)
     if prediction[0] == 1:
-        print('Yes')
         return render_template('index.html', prediction_text='Project is Approved '.format(prediction))
     else:
-        print('No')
         return render_template('result.html', prediction_text='Project is not Approved '.format(prediction))
 
 if __name__ == "__main__":
