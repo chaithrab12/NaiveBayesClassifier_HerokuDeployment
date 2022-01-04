@@ -1,1 +1,1 @@
-# DonorsChoose_NaiveBayes
+# DonorsChoose Application Screening
