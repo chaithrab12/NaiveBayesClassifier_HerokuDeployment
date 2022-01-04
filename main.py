@@ -63,10 +63,10 @@ def predict():
     print(prediction)
     if prediction[0] == 1:
         print('Yes')
-        return render_template('index.html', prediction_text='Project is eligible to approve '.format(prediction))
+        return render_template('index.html', prediction_text='Project is Approved '.format(prediction))
     else:
         print('No')
-        return render_template('result.html', prediction_text='Project is not eligible to approve '.format(prediction))
+        return render_template('result.html', prediction_text='Project is not Approved '.format(prediction))
 
 if __name__ == "__main__":
     app.run(debug=True)
