@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Project Approval</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" >
+    	<input type="text" name="school_state" placeholder="school state" required="required" />
+        <input type="text" name="teacher_prefix" placeholder="teacher prefix" required="required" />
+<!--        <label for="cars">Choose a teacher prefix:</label>-->
+<!--        <select name="teacher_prefix" id="cars">-->
+<!--          <option value="mr">mr</option>-->
+<!--          <option value="ms">ms</option>-->
+<!--          <option value="mrs">mrs</option>-->
+<!--          <option value="teacher">Teacher</option>-->
+<!--        </select>-->
+		<input type="text" name="project_grade_category" placeholder="project grade category" required="required" />
+        <input type="text" name="teacher_number_of_previously_posted_projects" placeholder="previously posted number" required="required" />
+        <input type="text" name="clean_categories" placeholder="clean categories" required="required" />
+        <input type="text" name="clean_subcategories" placeholder="clean subcategories" required="required" />
+        <input type="text" name="essay" placeholder="essay" required="required" />
+        <input type="text" name="price" placeholder="price" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
