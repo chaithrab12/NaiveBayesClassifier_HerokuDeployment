@@ -56,7 +56,7 @@ def predict():
     prediction = model.predict(final_features)
     print(prediction)
     if prediction[0] == 1:
-        return render_template('index.html', prediction_text='Project is Approved '.format(prediction))
+        return render_template('result.html', prediction_text='Project is Approved '.format(prediction))
     else:
         return render_template('result.html', prediction_text='Project is not Approved '.format(prediction))
 
